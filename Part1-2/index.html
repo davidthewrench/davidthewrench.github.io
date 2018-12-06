@@ -1,0 +1,93 @@
+
+<!DOCTYPE HTML>
+<!-- things to figure out
+	-- the scrolling part at the end that needs to have the transitions, I think that is messing with position fixed stuff
+	-- changing the drop down value of every relevant drop down when any of them are changed, pretty sure there is a way to just do a call to a common thing, so it's the sime drop down
+-->
+
+<!--
+	this week--sort from greatest to least
+	--the autoscrolling thing
+	--aaaaah transitions
+
+-->
+
+<!-- todo
+	xxx--pull data from multiple csv files
+	--test multiple svgs controlled by single js file
+	--figure out a good way to arrange these
+		--boxes vs text placemenet so this can be automated
+	--all the css
+		finalize css elements
+		what fonts are we using?
+	
+	--finalize text content
+	
+	--svg	
+		overall
+		gender
+		gender, race
+		gender, race, category
+		previous scaled
+		previousCombined
+		
+	--combine
+		figure out the inevitable dcc and html name conflicts
+		combine the separate js files we are working on?
+	
+-->
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Silicon Valley Diversity</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<!-- probs need to put some sizing stuff in here -->
+	<div id="Intro">
+		<h1>
+			The Tech Company Diversity in Silicon Valley
+		</h1>
+		<h3>
+			We visualized EEO-1 report of the largest tech companies headquartered in Silicon Valley
+		</h3>
+		<p>
+			By Zheru Jiang, Yixin Duan, Shuangke Li, David Howard
+		</p>
+	</div>
+	
+	<!-- the D3 content goes here -->
+	<div id = "part1-2" class = "part1">
+		<div id = "headMenu">
+			<h3 id = "header1"></h3>
+			<select id="selection1" onchange="genderChange()">
+				<option value="female">Female</option>
+				<option value="male">Male</option>
+			</select>
+			<h3 id="header2"></h3>
+            <select id="selection2" onchange="genderChange()">
+                <option value="white">White</option>
+                <option value="asian">Asian</option>
+                <option value="african">African</option>
+                <option value="hispanic">Hispanic</option>
+                <option value="minority">Monorities</option>
+            </select>
+			<h3 id="header3"></h3><br>
+			<div id="checkbox">
+				<input type="checkbox" id="sortCheckBox" onclick="sortDisplay(this)">Sort by current selection
+			</div>
+		</div>
+		<div id="svgHolder">
+			<svg id="svgCanvas" width="1000" height="1000"></svg>
+		</div>
+	</div>
+	<!-- D3 is done-->
+</body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="./d3_template.js"></script>
+
+</html>
